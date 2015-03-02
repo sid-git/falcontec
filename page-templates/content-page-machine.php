@@ -20,7 +20,9 @@ get_header(); ?>
                     <div class="col-md-12 main-content-list-table">
                     
                     <?php
-					$args=array('post_type'=>'machine','category_name'=>'3d-printing');
+					$machine_categories = get_field('machine_categories');
+					
+					$args=array('post_type'=>'machine','cat'=>$machine_categories);
 					// The Query
 					$the_query = new WP_Query( $args );
 					
