@@ -50,21 +50,8 @@ get_header(); ?>
                                     </li>
                                      <li>    
                                         <h4>Testing Environment</h4>
+                                        <input autocomplete="off" class="input" id="booking-envir-1" type="text" />
                                         
-                                        <?
-										$composition = get_field('testing_environment');
-											$composition = explode("<br />", $composition);
-										?>
-                                       <select id="booking-envir-1" class="selectpicker">
-                                            <?php
-												foreach ($composition as $composi){
-													if($composi!=''){
-														echo "<option>".$composi."</option>";	
-													}
-												}
-											
-											?>
-                                       </select>
                                     </li>
                                      <li>    
                                         <h4>Deliverable Date</h4>
@@ -120,7 +107,7 @@ get_header(); ?>
 	
   jq172('.add-more').click(function(){
 		addclick++;
-		var morefield='<ul><li><h4>Material</h4><input autocomplete="off" class="input" id="booking-mater-'+addclick+'" type="text" placeholder="What Material Do you need to Test?" data-items="8"/><button class="btn remove-more " type="button"><span class="glyphicon glyphicon-minus-sign" aria-hidden="true"></span>Remove Materials</button></li><li><h4>Type of Testing</h4><select id="booking-type-'+addclick+'" class="selectpicker"><option>Mustard</option><option>Ketchup</option><option>Relish</option></select></li><li><h4>Testing Environment</h4><select id="booking-envir-'+addclick+'" class="selectpicker"><option>Mustard</option><option>Ketchup</option><option>Relish</option></select></li><li><h4>Deliverable Date</h4><input id="date-picker-'+addclick+'" type="text" class="date-picker form-control" /></li></ul>';
+		var morefield='<ul><li><h4>Material</h4><input autocomplete="off" class="input" id="booking-mater-'+addclick+'" type="text" placeholder="What Material Do you need to Test?" data-items="8"/><button class="btn remove-more " type="button"><span class="glyphicon glyphicon-minus-sign" aria-hidden="true"></span>Remove Materials</button></li><li><h4>Type of Testing</h4><select id="booking-type-'+addclick+'" class="selectpicker"><option>Mustard</option><option>Ketchup</option><option>Relish</option></select></li><li><h4>Testing Environment</h4><input id="booking-envir-'+addclick+'" /></li><li><h4>Deliverable Date</h4><input id="date-picker-'+addclick+'" type="text" class="date-picker form-control" /></li></ul>';
 		//var morefield = '<input id="date-picker-'+addclick+'" type="text" class="date-picker form-control" />';
 	
 	
