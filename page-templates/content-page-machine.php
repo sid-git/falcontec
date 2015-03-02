@@ -100,69 +100,57 @@ get_header(); ?>
             
             </div>
             <div class="col-md-4 col-md-offset-1 sidebar">
-            	<div class="floatimg">
-                        <img src="<?php the_field('featured_image'); ?>" alt="">
-                    </div>
+            	<?php if(the_field('featured_image')){ $feature_image = get_field('featured_image'); ?>
+                    <div class="floatimg">
+                            <img src="<?php echo $feature_image['url']; ?>" alt="<?php echo $feature_image['alt']; ?>" />
+                     </div>
+                 <?php } ?>
                 <h4 class="light-gray-text">
-                    Related page
+                    Related pages
                 </h4>
                 <div class="col-md-12 main-content-list no-pad">
-                    <div class="main-content-list-item row-pad-small clearfix">
+                
+                <?php
+
+			// check if the repeater field has rows of data
+			if( have_rows('related_pages') ):
+			
+				// loop through the rows of data
+				while ( have_rows('related_pages') ) : the_row();
+				
+				$image = get_sub_field('page_image');
+			
+					?>
+                     
+                     <div class="main-content-list-item row-pad-small clearfix">
                         <div class="col-md-6 no-pad">
                             <div class="img-container-thumb">
-                                <img src="<?php echo get_template_directory_uri(); ?>/img/side-img.jpg" alt="">
+                                <img src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>" />
                             </div>
                         </div>
                         <div class="col-md-6 steps">
-                            <h4 class="medium-light-blue-text">3d applications</h4>
+                            <h4 class="medium-light-blue-text"><? the_sub_field('page_title'); ?></h4>
                             <p class="sub-font">
-                               Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                               <? the_sub_field('page_excerpt'); ?>
                             </p>
-                            <a href="#" class="link">go to page ></a>
+                            <a href="<? the_sub_field('page_link'); ?>" class="link">go to page ></a>
                         </div> 
                     </div>
-                    <div class="main-content-list-item row-pad-small clearfix">
-                        <div class="col-md-6 no-pad">
-                            <div class="img-container-thumb">
-                                <img src="<?php echo get_template_directory_uri(); ?>/img/side-img.jpg" alt="">
-                            </div>
-                        </div>
-                        <div class="col-md-6 steps">
-                            <h4 class="medium-light-blue-text">3d mechanical propeties</h4>
-                            <p class="sub-font">
-                               Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                            </p>
-                            <a href="#" class="link">go to page ></a>
-                        </div> 
-                    </div>
-                    <div class="main-content-list-item row-pad-small clearfix">
-                        <div class="col-md-6 no-pad">
-                            <div class="img-container-thumb">
-                                <img src="<?php echo get_template_directory_uri(); ?>/img/side-img.jpg" alt="">
-                            </div>
-                        </div>
-                        <div class="col-md-6 steps">
-                            <h4 class="medium-light-blue-text">MACHINE & SIZE CAPABILITIES</h4>
-                            <p class="sub-font">
-                               Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                            </p>
-                            <a href="#" class="link">go to page ></a>
-                        </div>
-                    </div>
-                    <div class="main-content-list-item row-pad-small clearfix">
-                        <div class="col-md-6 no-pad">
-                            <div class="img-container-thumb">
-                                <img src="<?php echo get_template_directory_uri(); ?>/img/side-img.jpg" alt="">
-                            </div>
-                        </div>
-                        <div class="col-md-6 steps">
-                            <h4 class="medium-light-blue-text">materials</h4>
-                            <p class="sub-font">
-                               Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                            </p>
-                            <a href="#" class="link">go to page ></a>
-                        </div>
-                    </div>
+                
+                
+                    <?php
+			
+				endwhile;
+			
+			else :
+			
+				// no rows found
+			
+			endif;
+			
+			?>
+                
+
 
                 </div>
             </div>
