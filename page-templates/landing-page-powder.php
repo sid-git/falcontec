@@ -82,6 +82,8 @@ get_header(); ?>
 							function slug($string){
 								$string=str_replace(" ","-",$string);
 								$string=str_replace(",","-",$string);
+								$string=str_replace("(","-",$string);
+								$string=str_replace(")","-",$string);
 								$string=strtolower($string);
 								return $string;
 								
@@ -158,6 +160,7 @@ get_header(); ?>
 											
 											$composition = get_sub_field('composition');
 											$composition = explode("<br />", $composition);
+											$composition_size = count($composition);
 											
 									?>
                                     
@@ -170,37 +173,67 @@ get_header(); ?>
                                         <td id="<?php echo slug($alloy); ?>-ams"><?php echo $ams; ?></td>
                                      
                                         <td>
-                                            <select id="<?php echo slug($alloy); ?>-sel" class="selectpicker">
-                                            <?php
+                                        <?php   $comcounter=0;
 												foreach ($composition as $composi){
+													$comcounter++;
 													if($composi!=''){
-														echo "<option>".$composi."</option>";	
+														echo '<li id="'.slug($alloy).'-sel-'.$comcounter.'">'.$composi.'</li>';	
 													}
 												}
 											
 											?>
-                                       		</select>
+                                        
+                                        
                                         </td>
                                         <td>
-                                            <input id="<?php echo slug($alloy); ?>-qty" type="number">
+                                        <?php   $comcounter=0;
+												foreach ($composition as $composi){
+													$comcounter++;
+													if($composi!=''){
+														echo '<li><input id="'.slug($alloy).'-qty-'.$comcounter.'" type="number"></li>';	
+													}
+												}
+											
+											?>
+
                                         </td>
                                         <td>
-                                            <a id="<?php echo slug($alloy); ?>-btn" class="btn">add to order</a>
+                                        <?php   $comcounter=0;
+												foreach ($composition as $composi){
+													$comcounter++;
+													if($composi!=''){
+														echo '<li><a id="'.slug($alloy).'-btn-'.$comcounter.'" class="btn">add to order</a></li>';	
+													}
+												}
+											
+											?>
+
                                         </td>
                                     </tr>
                                     
                                     <script type="text/javascript">
-										jQuery('#<?php echo slug($alloy); ?>-btn').click(function(){
+									function jsslug(str){
+										str=str.replace(" ","-");
+										str=str.replace(",","-");
+										str=str.replace("(","-");
+										str=str.replace(")","-");
+										str=str.toLowerCase();
+										return str;
+										
+									}
+									
+										<?php for($i=1; $i<$composition_size+1; $i++){ ?>
+										jQuery('#<?php echo slug($alloy); ?>-btn-<?php echo $i; ?>').click(function(){
 											var alloy = jQuery('#<?php echo slug($alloy); ?>-alloy').text();
 											var comp1 = jQuery('#<?php echo slug($alloy); ?>-comp1').text();
 											var comp2 = jQuery('#<?php echo slug($alloy); ?>-comp2').text();
 											var uns = jQuery('#<?php echo slug($alloy); ?>-uns').text();
 											var astm = jQuery('#<?php echo slug($alloy); ?>-astm').text();
 											var ams = jQuery('#<?php echo slug($alloy); ?>-ams').text();
-											var sel = jQuery('#<?php echo slug($alloy); ?>-sel').val();
-											var qty = jQuery('#<?php echo slug($alloy); ?>-qty').val();
+											var sel = jQuery('#<?php echo slug($alloy); ?>-sel-<?php echo $i; ?>').text();
+											var qty = jQuery('#<?php echo slug($alloy); ?>-qty-<?php echo $i; ?>').val();
 											
-											var addhtml = '<tr id="'+alloy.toLowerCase()+'-row" class="powder-summary details"><td colspan="2">'+alloy+'</td><td colspan="2">'+comp1+comp2+'</td><td>'+sel+'</td><td>'+qty+'</td><td><a id="'+alloy.toLowerCase()+'-remove" class="btn remove">X remove</a></td></tr>';
+											var addhtml = '<tr id="'+jsslug(alloy.toLowerCase())+'-row-<?=$i?>" class="powder-summary details"><td colspan="2">'+alloy+'</td><td colspan="2">'+comp1+comp2+'</td><td>'+sel+'</td><td>'+qty+'</td><td><a id="'+jsslug(alloy.toLowerCase())+'-remove-<?=$i?>" class="btn remove">X remove</a></td></tr>';
 											
 											//var addemailhtml = '<tr id="'+alloy.toLowerCase()+'-row" class="powder-summary details"><td colspan="2">'+alloy+'</td><td colspan="2">'+comp1+comp2+'</td><td>'+sel+'</td><td>'+qty+'</td></tr>';
 											if(qty>0){
@@ -212,9 +245,10 @@ get_header(); ?>
 												bootbox.alert('<div class="alert alert-success"  role="alert">The selected product has been added to your request list.</div>');
 												
 												jQuery('#hidden-powder').val(jQuery('#hidden-powder').val()+addhtml);
-												jQuery('#<?php echo slug($alloy); ?>-remove').click(function(){	
-													jQuery('#<?php echo slug($alloy); ?>-row').remove();
+												jQuery('#<?php echo slug($alloy); ?>-remove-<?=$i?>').click(function(){	
+													jQuery('#<?php echo slug($alloy); ?>-row-<?=$i?>').remove();
 													jQuery('#hidden-powder').val(jQuery('.powder-summary-table table').html());
+													
 													//alert(jQuery('#hidden-powder').val());
 												});
 											}else{
@@ -228,7 +262,7 @@ get_header(); ?>
 										
 										
 										
-											
+											<?php } ?>
 										
 											
 									</script>  
