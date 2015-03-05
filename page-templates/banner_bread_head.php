@@ -39,14 +39,15 @@ switch ($banner_text_color){
     <div class="row light-blue-bg main-heading">   
         <div class="container"> 
                 <div class="col-md-12 ">  
-                    <?php $page_depth=get_depth(); ?>
+                	<h1 class="heading blue-text divider-vertical"><?php the_title(); ?></h1>
+                    <?php /*?><?php $page_depth=get_depth(); ?>
                   		<?php if($page_depth==1){ ?>
 							<h1 class="heading blue-text divider-vertical"><?php the_title(); ?></h1> <h2 class="blue-text  heading"><?php the_field('sub_title') ?></h2>
 						<?php }elseif($page_depth==2){ ?>
 							<h1 class="heading blue-text divider-vertical"><?php echo get_the_title($post->post_parent); ?></h1> <h2 class="blue-text  heading"><?php the_title(); ?></h2>
 						<?php }else{ ?>
 							<h1 class="heading blue-text"><?php the_title(); ?></h1>
-                      	<?php } ?>
+                      	<?php } ?><?php */?>
                 </div>
         </div>
     </div>
