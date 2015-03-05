@@ -91,30 +91,9 @@
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 
 <!-- Include all compiled plugins (below), or include individual files as needed -->
-<script src="<?php echo get_stylesheet_directory_uri(); ?>/js/bootstrap.min.js"></script>
-<script src="<?php echo get_stylesheet_directory_uri(); ?>/js/falcontech.js"></script>
-<script src="<?php echo get_stylesheet_directory_uri(); ?>/bxslider/jquery.bxslider.min.js"></script>
-<script src="<?php echo get_stylesheet_directory_uri(); ?>/js/bootbox.js"></script>
 
-<script>
-var lg=jQuery.noConflict();
-lg(document).ready(function(){
-lg('.certified-logo').bxSlider({
-    slideWidth: 5000,
-    minSlides: 3,
-    maxSlides: 3,
-    slideMargin: 10,
-	pager: false
-  });
-lg('.partners-logo').bxSlider({
-    slideWidth: 5000,
-    minSlides: 3,
-    maxSlides: 3,
-    slideMargin: 10,
-	pager: false
-  });
-});
-				</script>
+
+
 
 <?php wp_footer(); ?>
 </body>
