@@ -409,9 +409,9 @@ margin-right: 1%;
 	color: #efefef
 }
 .form-group input {
-	height:30px;
-	background: url(../img/mag.jpg) no-repeat 150px center;
-	margin-right:14px;
+height: 30px;
+background: url(../img/mag.jpg) no-repeat 135px center;
+margin-right: 14px;
 }
 .navbar-brand {
 	text-indent: -9999px;
@@ -1255,4 +1255,13 @@ div.footer-bottom {
 .contact-btn{
 float: right;
 margin-right: 180px;	
+}
+
+.powder-table li {
+height: 60px;
+line-height: 30px;
+}
+.certified-logo, .partners-logo{
+	visibility:hidden;
+	height:0;	
 }
