@@ -418,7 +418,7 @@ margin-right: 14px;
 	width: 153px;
 	height: 81px;
 	display: block;
-	background: url(../img/falcontec-logo.jpg) no-repeat;
+	background: url(../img/falcontech-logo.jpg) no-repeat;
 }
 .navbar {
 	background: #f2f2f2;
@@ -703,7 +703,7 @@ nav.thirdary-nav li.current_page_item a, nav.thirdary-nav li.current_page_ancest
 	font-size: 18px;
 }
 .banner.home .banner-des p {
-	font-size:24px;
+	font-size:18px;
 	line-height: 30px
 }
 .banner-des p {
@@ -1232,17 +1232,17 @@ nav.footer-nav>ul>li {
 	color:#8e8e8e;
 	font-size: 16px;
 	width:16.66%;
+	text-align:center;
 
+}
+nav.footer-nav>ul>li>a {
+	color:#8e8e8e;
 }
 nav.footer-nav>ul>li ul {
 	padding-top:8px;
 }
 nav.footer-nav>ul>li li {
 	line-height: 100%
-}
-nav.footer-nav>ul>li>ul a {
-	color:#fff;
-	font-size: 11px
 }
 
 div.footer-bottom {

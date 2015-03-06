@@ -19,8 +19,8 @@ get_header(); ?>
     <div class="row banner home ">
         <div class="container">
             <div class="banner-des col-md-5 pull-right">
-                <h1 class="white-text"><?php the_field('banner_heading'); ?></h1>
-                <p class="sub-font white-text row-pad">
+                <h1 class="dark-gray-text"><?php the_field('banner_heading'); ?></h1>
+                <p class="sub-font dark-gray-text ">
                    <?php the_field('banner_text'); ?>
                 </p> 
                 <a href="#" class="btn ">learn more about falcontech ></a>
@@ -139,7 +139,7 @@ get_header(); ?>
                         <h4 class="medium-light-blue-text"><?php the_sub_field('footer_grid_title'); ?></h4>
                         <h3><?php the_sub_field('footer_grid_second_title'); ?></h3>
                         <p class="sub-font"><?php the_sub_field('footer_grid_excerpt'); ?></p>
-                        <a href="<?php the_sub_field('footer_grid_link'); ?>" class="btn"> get directions</a>
+                        <a href="<?php the_sub_field('footer_grid_link'); ?>" class="btn"> read more</a>
                         
                     </div>
                 </div>
