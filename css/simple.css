@@ -88,7 +88,7 @@ h1 {
 	text-transform: uppercase;
 }
 h2 {
-
+	font-weight: normal;
 	font-family:"Museo Sans W01_700";
 	text-transform: uppercase;
 }
@@ -421,6 +421,7 @@ margin-right: 14px;
 	background: url(../img/falcontech-logo.jpg) no-repeat;
 }
 .navbar {
+	border-bottom: 1px solid #ccc !important;
 	background: #f2f2f2;
 	border:none;
 	margin-bottom:0;
@@ -488,6 +489,15 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', end
 .main-nav>li.active.aerospace-tab, .main-nav>li.current-page-ancestor.aerospace-tab, .main-nav>li.current-page-parent.aerospace-tab {
 	border-top: 3px solid #1d4671
 }
+.main-nav>li.active.gift-tab, .main-nav>li.current-page-ancestor.gift-tab, .main-nav>li.current-page-parent.gift-tab {
+	border-top: 3px solid #faab00
+}
+
+.main-nav>li.active.bio-tab, .main-nav>li.current-page-ancestor.bio-tab, .main-nav>li.current-page-parent.bio-tab {
+	border-top: 3px solid #00aeef
+}
+
+
 .main-nav>li.active.powders-tab, .main-nav>li.current-page-ancestor.powders-tab, .main-nav>li.current-page-parent.powders-tab {
 	border-top: 3px solid #492871
 }
@@ -665,7 +675,7 @@ nav.thirdary-nav li.current_page_item a, nav.thirdary-nav li.current_page_ancest
 }
 .banner {
 	max-height: 440px;
-	min-height:400px;
+	
 	overflow: hidden
 }
 .banner .container {
@@ -725,6 +735,7 @@ nav.thirdary-nav li.current_page_item a, nav.thirdary-nav li.current_page_ancest
 	width:100%;
 	height:auto;
 }
+
 .partners ul {
 	list-style: none;
 	margin:0;
